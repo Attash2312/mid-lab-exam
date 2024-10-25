@@ -13,7 +13,7 @@ body {
 
 .cover {
     width: 100%;
-    height: 100vh; /* Full screen height for cover */
+    height: 700px; /* Full screen height for cover */
     background-image: url('images/mobile_intro_bg.png');
     background-size: cover;
     background-position: center;
@@ -38,9 +38,40 @@ header {
 .headline {
     font-size: 1.5rem;
     color: #ec5242;
-    margin: 10px;
+    margin: 20px;
 }
 .headline h3 {
     padding-top: 30px;
     font-weight: 100;
+}
+
+.headline h1 {
+    font-size: 50px;
+    font-weight: 800;
+    margin-top: -20px;
+
+}
+
+.details {
+    color: #000000;
+    border: 4px solid #ffff;
+    background-color: rgb(240, 234, 234);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.timing{
+    color:#272A31;
+    padding-left: 20px;
+}
+
+.main-program{
+    background-image: url('images/wp8529160.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #ffff;
+}
+
+.main-program h1{
 }
