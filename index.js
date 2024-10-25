@@ -1,45 +1,51 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const speakersData = [
-        {
-            name: "Yochai Benkler",
-            title: "Berkman Professor of Entrepreneurial Legal Studies",
-            img: "path-to-image/benkler.jpg",
-            description: "Benkler studies commons-based peer production..."
-        },
-        {
-            name: "SohYeong Noh",
-            title: "Director of Art Centre Nabi",
-            img: "path-to-image/noh.jpg",
-            description: "As the main venue for new media art production in Korea..."
+document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.getElementById("menu-icon");
+    const menuList = document.getElementById("menu-list");
+
+    // Toggle menu visibility on icon click
+    menuIcon.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevent click from closing menu immediately
+        if (menuList.style.display === "block") {
+            menuList.style.display = "none";
+        } else {
+            menuList.style.display = "block";
         }
-    ];
-
-    const speakersContainer = document.getElementById('speakers-container');
-    
-    speakersData.forEach(speaker => {
-        const speakerDiv = document.createElement('div');
-        speakerDiv.classList.add('speaker');
-        
-        speakerDiv.innerHTML = `
-            <img src="${speaker.img}" alt="${speaker.name}">
-            <h3>${speaker.name}</h3>
-            <p>${speaker.title}</p>
-            <p>${speaker.description}</p>
-        `;
-        
-        speakersContainer.appendChild(speakerDiv);
-    });
-    
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const mobileNav = document.querySelector('.mobile-nav');
-    const closeBtn = document.querySelector('.close');
-
-    hamburger.addEventListener('click', () => {
-        mobileNav.style.display = 'block';
     });
 
-    closeBtn.addEventListener('click', () => {
-        mobileNav.style.display = 'none';
+    // Close menu if clicking outside of it
+    document.addEventListener("click", function (event) {
+        if (!menuIcon.contains(event.target) && !menuList.contains(event.target)) {
+            menuList.style.display = "none"; // Hide menu when clicking outside
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const menuIcon = document.getElementById("menu-icon");
+    const menuList = document.getElementById("menu-list");
+
+    // Toggle the display of the menu list when the icon is clicked
+    menuIcon.addEventListener("click", function (event) {
+        event.stopPropagation(); // Prevents the click from propagating to document
+        menuList.style.display = menuList.style.display === "block" ? "none" : "block";
+    });
+
+    // Close the menu if the user clicks outside of it
+    document.addEventListener("click", function (event) {
+        if (!menuIcon.contains(event.target) && !menuList.contains(event.target)) {
+            menuList.style.display = "none"; // Hide menu
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const moreButton = document.querySelector(".more-container");
+    const hiddenSpeakers = document.querySelectorAll(".speaker-item.hidden");
+
+    moreButton.addEventListener("click", function () {
+        hiddenSpeakers.forEach((speaker) => {
+            speaker.classList.remove("hidden"); // Show each hidden speaker
+        });
+
+        // Optionally, hide the "More" button after showing the hidden speakers
+        moreButton.style.display = "none";
     });
 });
